@@ -1,0 +1,70 @@
+"use strict"
+
+// REZA RAKA NUGRAHA
+// question 3 assignment at PT Five Jack
+
+const solution = (relation) => {
+    let answer = 0
+
+    let current = null
+    let counter = 0
+
+    let data = {}
+
+    let id = []
+    let name = []
+    let major = []
+    let grade = []
+
+    for(let a = 0; a < relation.length; a++ ) {
+        data[a] = {
+            id: relation[a][0],
+            name: relation[a][1],
+            major: relation[a][2],
+            grade: relation[a][3],
+        }
+        // insert data id
+        id.push(relation[a][0])
+        // insert data name
+        name.push(relation[a][1])
+        // insert data major
+        major.push(relation[a][2])
+        // insert data grade
+        grade.push(relation[a][3])
+    }
+
+    // loop for check candidate key for id
+    for(let b = 0; b < id.length; b++) {
+        
+    }
+
+    return data
+}
+
+console.log( solution([["100", "ryan", "music", "2"], ["200", "apeach", "math", "2"], ["300", "tube", "computer", "3"], ["400", "con", "computer", "4"], ["500", "muzi", "music", "3"], ["600", "apeach", "music", "2"]]) )
+
+
+    // loop to check where are the user has lose at the same stage
+    // for (let i = 0; i < arrCome.length; i++) {
+    //     if(arrCome[i] != current) {
+    //         if(counter > 0) {
+    //             data[i] = {
+    //                 words: current,
+    //                 showsTime: counter 
+    //             }
+    //         }
+    //         current = arrCome[i]
+    //         counter = 1
+    //     } else {
+    //         counter++
+    //     }
+    // }
+
+    // if (current <= arrCome.length) {
+    //     if(counter > 0) {
+    //         data = {
+    //             words: current,
+    //             showsTime: counter 
+    //         }
+    //     }    
+    // }
