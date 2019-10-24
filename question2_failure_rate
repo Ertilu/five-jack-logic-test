@@ -1,10 +1,28 @@
 "use strict"
 
 // REZA RAKA NUGRAHA
-// question 1 assignment at PT Five Jack
+// question 2 assignment at PT Five Jack
 
-const solution = (N, users) => {
-    return N + users
+const solution = (N, users = []) => {
+    let answer = []
+    
+    for(let i = 0; i < users.length; i++) {
+        if (users[i] > N) {
+            answer.push(users[i])
+        }   
+    }
+
+    for(let n = 0; n < N; n++) {       
+        for(let i = 0; i < users.length; i++) {
+            if (users[i] == n) {
+                answer.push(users[i])
+            }   
+        }
+    }
+
+    return answer
 }
 
-console.log(solution("Hello", " world"))
+console.log(solution(5, [2,1,2,2,4,3,6,3]))
+
+// expected output [3,4,2,1,5]
