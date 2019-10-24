@@ -8,103 +8,45 @@ const solution = (N, users = []) => {
 
     let stages = []
     let usersPlay = []
-    let usersLose = []
-    let result = []
+    let userLose = []
 
-    let data = {}
-    let data2 = {}
+    let exist = 0
 
-    users.sort((a,b) => a-b)
-    let current = null
-    let counter = 0
-
-    let survivorPlayers = users.length
-    let failureRate = []
-    
-    for (let i = 0; i < users.length; i++) {
-        // users = 1, 2, 2, 2, 3, 3, 4, 6
-        if(users[i] != current) {
-            if(counter > 0) {
-                console.log(current + ' comes --> ' + counter + ' times \n')
-                usersPlay.push(current)
-                usersLose.push(counter)
-            }
-            current = users[i]
-            counter = 1
-        } else {
-            counter++
+    // loops for sort the users by level they pass
+    for(let n = 0; n < N; n++) {       
+        for(let i = 0; i < users.length; i++) {
+            if (users[i] == n) {
+                usersPlay.push(users[i])
+            }   
         }
     }
-    
-    if(counter > 0) {
-        console.log(current + ' comes --> ' + counter + ' times \n')
-        usersPlay.push(current)
-        usersLose.push(counter)
-        data = {
-            'usersPlayAtStage': usersPlay,
-            'howManyLoseAtThatStages': usersLose
-        }
+
+    // looping for check that input have won the game (users[n] > total stages)
+    for(let i = 0; i <= users.length; i++) {
+        if (users[i] > N) {
+            usersPlay.push(users[i])
+        }   
     }
 
     // loop for create how many stages there are
     for(let s = 1; s <= N; s++) {
-       stages.push(s)
+       stages.push(s)  
     }
 
-    // loop to check where users lose at that stage 
-    for(let z = 0; z < stages.length; z++) {
-            data2[z] = {
-                stage: stages[z],
-                failureRate: usersLose[z] +'/'+ survivorPlayers 
+    // loops fo identifier the users who play at stages
+    for (let u=0; u < usersPlay.length; u++) {
+        for(let s = 0; s <= stages.length; s++) {
+            if (usersPlay[u] == stages[s]) {
+                answer.push(stages[s])
             }
-            survivorPlayers = survivorPlayers - usersLose[z]
-    
+         }
     }
 
-    return data2
+
+
+    return usersPlay
 }
 
 console.log(solution(5, [2,1,2,2,4,3,6,3]))
 
 // expected output [3,4,2,1,5]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const countDuplicate = () => {
-    let users = [2,2,2,4,1,3,6,3]
-    users.sort((a,b) => a-b)
-    
-    let current = null
-    let counter = 0
-    for (let i = 0; i < users.length; i++) {
-        // users = 1, 2, 2, 2, 3, 3, 4, 6
-        if(users[i] != current) {
-            if(counter > 0) {
-                console.log(current + ' comes --> ' + counter + ' times \n')
-            }
-            current = users[i]
-            counter = 1
-        } else {
-            counter++
-        }
-    }
-    
-    if(counter > 0) {
-        console.log(current + ' comes --> ' + counter + ' times \n')
-    }
-
-    return counter
-}
-
-// console.log(countDuplicate())
