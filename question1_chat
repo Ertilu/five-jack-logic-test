@@ -1,0 +1,4 @@
+const solution = (record = []) => {
+    return "Hello World"
+}
+console.log( solution([]) ) 
