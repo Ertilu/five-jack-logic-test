@@ -4,24 +4,24 @@
 // question 2 assignment at PT Five Jack
 
 const solution = (N, users = []) => {
+    // handle users input
     if (N > 500) {
         return "error total stage must be 1 ~ 500"
     } else if (users.length > 200000) {
         return "error length of users must be 1 ~ 200.000"
     }
-    let answer = []
 
-    let stages = []
-    let usersPlay = []
-    let usersLose = []
+    let    
+    answer = [], // prepare output variable
+    stages = [], // how many stages there are
+    usersPlay = [], // user play the game
+    usersLose = [], // user lose the game
+    data = [],  // store user data   
+    failureRate = [] // store failure rate of every stage
 
-    let data = []
+    let survivorPlayers = users.length  // to count how many users available after lose the game
 
-    let survivorPlayers = users.length
-    let failureRate = []
-
-    // sort all input of users
-    users.sort((a,b) => a-b)
+    users.sort((a,b) => a-b) // sort all input of users
     let current = null
     let counter = 0
 
@@ -53,6 +53,7 @@ const solution = (N, users = []) => {
     
     // loop to check where users lose at that stage 
     for(let l = 0; l < stages.length; l++) {
+        // check if users lose at the final stage
         if (usersPlay[l] === N) {
             failureRate.push(stages) 
         }
@@ -88,9 +89,12 @@ const solution = (N, users = []) => {
         answer.pop()
         answer.splice(0,0, N)
     }
-
+    //return output
     return answer
 }
-
-console.log(solution(5, [2,1,2,2,4,3,6,3]))
+// call the function
+console.log("test case 1 : " + solution(5, [2,1,2,2,4,3,6,3]))
 // expected output [3,4,2,1,5]
+
+console.log("test case 2 : " + solution(4, [4,4,4,4,4]))
+// expected output [4,1,2,3]
