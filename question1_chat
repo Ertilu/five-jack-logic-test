@@ -5,10 +5,18 @@ const solution = (record = []) => {
 
     let data = []
 
-    let userIn = []
-    let userOut = []
+    let userOut = ''
+    let outIndex = []
     
     let id = 0
+
+    //create loop to notifying where leave indexed 
+    for(r=0; r < record.length; r++) {
+        const word = record[r].split(' ')
+        if (word.length == 2) {
+            outIndex.push(r)
+        }
+    }
 
     for(let i = 0; i < users.length; i++) {
         if(users[0] == "Leave") {
@@ -27,12 +35,6 @@ const solution = (record = []) => {
                 'name': users[i+2]
             }
             id++
-        } else if (users[i] == "Leave") {  
-            for(let j = 0; j < data.length; j++) {
-                if (users[i+1] == data[j].id) {
-                    answer.push(data[j].name + ' has left')
-                }
-            }  
         } else if (users[i] == "Change") {  
             for(let j = 0; j < data.length; j++) {
                 if (users[i+1] == data[j].id) {
@@ -48,10 +50,20 @@ const solution = (record = []) => {
         }
     }  
 
-    return answer
-}  
+    for(let i = 0; i < users.length; i++) {
+        if (users[i] == "Leave") {  
+            for(let j = 1; j < data.length; j++) {
+                if (users[i+1] == data[j].id) {
+                    answer.splice(2, 0, data[j].name + " has left.")
+                }
+            }  
+        } 
+    }
+   
 
-console.log( solution(["Enter uid1234 Muzi", "Enter uid4567 Prodo", "Leave uid1234", "Enter uid1234 Raka"]) ) 
+    return outIndex
+}
+console.log( solution(["Enter uid1234 Muzi", "Enter uid4567 Prodo", "Leave uid1234", "Enter uid1234 Raka", "Change uid4567 Ryan", "Leave uid1234"]) ) 
 
 // const arr = ["uid1234", "uid4567", "uid1234", "uid1234", 'uid1', 'uid3', 'uid1']
 
