@@ -13,3 +13,18 @@ $ run this command in command prompt:
   - node question2_faliure_rate for number two
   - node question1_candidate_key for number three
 ```
+
+Screenshot number one:
+
+![Screenshot (35)](https://user-images.githubusercontent.com/53091940/67512496-24533800-f6c3-11e9-915b-9d578b553ff6.png)
+
+Screenshot number two
+
+![Screenshot (36)](https://user-images.githubusercontent.com/53091940/67512565-46e55100-f6c3-11e9-8868-187dfb08d0ef.png)
+
+Screenshot number three
+
+![Screenshot (37)](https://user-images.githubusercontent.com/53091940/67512581-519fe600-f6c3-11e9-83c1-618285bb71fe.png)
+
+
+ 
