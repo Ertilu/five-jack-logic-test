@@ -1,33 +1,89 @@
 const solution = (record = []) => {
-    // handle user input, make them into string and turn it again into array
     let users = record.join(' ').replace(/,/g, "").split(" ")
 
-    // prepare the output variable
     let answer = []
 
-    // this variable use to store user data
     let data = []
 
-    // this variable is use to notifying where index is user leaved 
-    let outIndex = []
-
-    //create loop to notifying where index is user leaved 
-
-    // this variable use to handle increment for new user data
+    let userIn = []
+    let userOut = []
+    
     let id = 0
 
-    // looping for handle enter and change nickname action input
-    
+    for(let i = 0; i < users.length; i++) {
+        if(users[0] == "Leave") {
+            return "You must enter the chat first before leaving the app."
+        } else if(users[0] == "Change") {
+            return "You must enter the chat first before change the nickname."
+        } else if (users[i] == "Enter") {  
+            for(let j = 0; j < data.length; j++) {
+                if (users[i+1] == data[j].id) {
+                    data[j].name = users[i+2]
+                }
+            }  
+            data[id] = {
+                'action': users[i],
+                'id': users[i+1],
+                'name': users[i+2]
+            }
+            id++
+        } else if (users[i] == "Leave") {  
+            for(let j = 0; j < data.length; j++) {
+                if (users[i+1] == data[j].id) {
+                    answer.push(data[j].name + ' has left')
+                }
+            }  
+        } else if (users[i] == "Change") {  
+            for(let j = 0; j < data.length; j++) {
+                if (users[i+1] == data[j].id) {
+                    data[j].name = users[i+2]
+                }
+            }  
+        } 
+    }
 
-    // looping for show who users enter the room
-   
+    for(let j = 0; j < data.length; j++) {
+        if(data[j].action == "Enter") {
+            answer.push(data[j].name + " came in.")
+        }
+    }  
 
-    // looping for show who users left the room
-    
-   
-    // return output variable
     return answer
-}
+}  
 
-// call the function
-console.log( solution(["Enter uid1234 Muzi", "Enter uid4567 Prodo", "Leave uid1234", "Enter uid1234 Prodo", "Change uid4567 Ryan"]) ) 
+console.log( solution(["Enter uid1234 Muzi", "Enter uid4567 Prodo", "Leave uid1234", "Enter uid1234 Raka"]) ) 
+
+// const arr = ["uid1234", "uid4567", "uid1234", "uid1234", 'uid1', 'uid3', 'uid1']
+
+// let findDuplicate = arr => arr.filter((item, index) => arr.indexOf(item) != index)
+
+// let duplicated = arr.filter((item, index, ketiga, keempat) => keempat)
+// console.log(duplicated)
+
+// console.log(findDuplicate(arr))
+// console.log(... new Set(findDuplicate(arr)))
+
+// nama pasti ada di index ke = 2, 5, 8, 11, 14
+// id pasti ada di index ke = 1, 4, 7, 10, 13, 16, 19
+
+
+// CORE PROGRAM
+// for(let i = 0; i < users.length; i++) {
+//     if (i % 3 == 0) {
+//         if (users[i] == "Leave") {
+//             // answer.push(users[i] + ' has left.')
+//             users.splice(i+2, 0, '')
+//         }
+//         data[id] = {
+//             'action': users[i],
+//             'id': users[i+1],
+//             'name': users[i+2]
+//         }
+//         id++
+//         // if (users[i] == "Enter") {
+//         //     answer.push(users[i + 2] + ' came in.')
+//         // } else if (users[i] == "Leave") {
+//         //     answer.push(users[i] + ' has left.')
+//         // }
+//     }  
+// }
