@@ -10,14 +10,6 @@ const solution = (record = []) => {
     
     let id = 0
 
-    //create loop to notifying where leave indexed 
-    for(r=0; r < record.length; r++) {
-        const word = record[r].split(' ')
-        if (word.length == 2) {
-            outIndex.push(r)
-        }
-    }
-
     for(let i = 0; i < users.length; i++) {
         if(users[0] == "Leave") {
             return "You must enter the chat first before leaving the app."
@@ -61,9 +53,10 @@ const solution = (record = []) => {
     }
    
 
-    return outIndex
-}
-console.log( solution(["Enter uid1234 Muzi", "Enter uid4567 Prodo", "Leave uid1234", "Enter uid1234 Raka", "Change uid4567 Ryan", "Leave uid1234"]) ) 
+    return answer
+}  
+
+console.log( solution(["Enter uid1234 Muzi", "Enter uid4567 Prodo", "Leave uid1234", "Enter uid1234 Raka", "Change uid4567 Ryan"]) ) 
 
 // const arr = ["uid1234", "uid4567", "uid1234", "uid1234", 'uid1', 'uid3', 'uid1']
 
