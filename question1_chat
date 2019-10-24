@@ -1,4 +1,33 @@
 const solution = (record = []) => {
-    return "Hello World"
+    // handle user input, make them into string and turn it again into array
+    let users = record.join(' ').replace(/,/g, "").split(" ")
+
+    // prepare the output variable
+    let answer = []
+
+    // this variable use to store user data
+    let data = []
+
+    // this variable is use to notifying where index is user leaved 
+    let outIndex = []
+
+    //create loop to notifying where index is user leaved 
+
+    // this variable use to handle increment for new user data
+    let id = 0
+
+    // looping for handle enter and change nickname action input
+    
+
+    // looping for show who users enter the room
+   
+
+    // looping for show who users left the room
+    
+   
+    // return output variable
+    return answer
 }
-console.log( solution([]) ) 
+
+// call the function
+console.log( solution(["Enter uid1234 Muzi", "Enter uid4567 Prodo", "Leave uid1234", "Enter uid1234 Prodo", "Change uid4567 Ryan"]) ) 
