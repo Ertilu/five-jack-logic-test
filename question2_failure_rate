@@ -1,0 +1,10 @@
+"use strict"
+
+// REZA RAKA NUGRAHA
+// question 1 assignment at PT Five Jack
+
+const solution = (N, users) => {
+    return N + users
+}
+
+console.log(solution("Hello", " world"))
