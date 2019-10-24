@@ -3,23 +3,23 @@
 // REZA RAKA NUGRAHA
 // question 1 assignment at PT Five Jack
 
-const solution = (record = []) => {
+const solution = (record) => {
     // handle user input, make them into string and turn it again into array
     let users = record.join(' ').replace(/,/g, "").split(" ")
 
+    // handle users input
     let input = users.join('')
     if (input.length > 100000) {
         return "error input users string must be 1 ~ 100.000"
     }
 
+    let 
     // prepare the output variable
-    let answer = []
-
+    answer = [],
     // this variable use to store user data
-    let data = []
-
+    data = [],
     // this variable is use to notifying where index is user leaved 
-    let outIndex = []
+    outIndex = []
 
     //create loop to notifying where index is user leaved 
     for(let r=0; r < record.length; r++) {
